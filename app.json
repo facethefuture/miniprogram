@@ -4,7 +4,9 @@
     "pages/logs/logs",
     "pages/index2/index",
     "pages/profile/index",
-    "pages/profile/detailPage/crmInfo/index"
+    "pages/profile/detailPage/crmInfo/index",
+    "pages/profile/detailPage/saleNote/index",
+    "pages/profile/detailPage/tagInfo/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -59,14 +59,17 @@
 .singleTag{
   background: #3c7ec9;
   border-radius: 25px;
-  padding: 5px;
+  padding: 0px 5px;
   color: white;
-  margin-right: 3px;
+  margin: 3px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
 }
 .tags_tagBox{
-  /* display: flex; */
-  white-space: pre-wrap;
+display:inline-flex;
+flex-wrap:wrap;
+}
+.edit::after{
+  border-bottom: none;
 }

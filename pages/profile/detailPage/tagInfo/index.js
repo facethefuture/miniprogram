@@ -1,4 +1,4 @@
-// pages/profile/detailPage/crmInfo/index.js
+// pages/profile/detailPage/tagInfo/index.js
 Page({
 
   /**
