@@ -16,19 +16,19 @@
   margin: 0 auto；
 }
 .header text:nth-child(1){
-  width: 187.5rpx;
+  width: 205rpx;
 }
 .header text:nth-child(2){
-  width:240rpx;
+  width:265rpx;
 }
 .header text:nth-child(3){
-  width:112rpx;
+  width:105rpx;
 }
 .header text:nth-child(4){
-  width:90rpx;
+  width:85rpx;
 }
 .header text:nth-child(5){
-  width:120.5rpx;
+  width:90rpx;
 }
 .listContainer{
   margin-top: 24px;
@@ -40,7 +40,7 @@
 }
 .list_single_customer navigator{
   display: flex;
-  font-size: 10px;
+  font-size: 0.7rem;
 }
 .list_single_customer navigator view{
   display: flex;
@@ -54,21 +54,24 @@
 }
 
 .list_single_customer navigator view:nth-child(1) image{
-  height: 100rpx;
-  width: 100rpx;
+  height: 95rpx;
+  width: 95rpx;
   border-radius: 50%;
 }
 .list_single_customer navigator view:nth-child(2){
-  width: 112.5rpx;
-  padding-left: 3rpx;
+  width: 110rpx;
 }
 .list_single_customer navigator view:nth-child(3){
-  width: 240rpx;
-  padding-left: 3rpx;
+  width: 265rpx;
 }
 .list_single_customer navigator view:nth-child(4){
-  width: 97.5rpx;
+  width: 105rpx;
 }
 .list_single_customer navigator view:nth-child(5){
   width: 75rpx;
+    font-size: 10px;
+}
+.list_single_customer navigator view:nth-child(6){
+  width: 100rpx;
+  font-size: 10px;
 }

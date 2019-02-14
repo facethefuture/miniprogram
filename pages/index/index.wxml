@@ -12,7 +12,7 @@
   <view><text>奥魅惑磨砂美唇膏 (2)</text></view>
   <view><text>$16,000</text></view>
   <view><text>12-29</text></view>
-  <view><icon type="success" color="#3c7ec9"></icon></view>
+  <view><icon type="success" color="#3c7ec9" wx:if="{{index % 2 === 0}}"></icon><text wx:else>一般活跃</text></view>
 </navigator>
 </view>
 </scroll-view>
