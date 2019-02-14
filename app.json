@@ -3,7 +3,8 @@
     "pages/index/index",
     "pages/logs/logs",
     "pages/index2/index",
-    "pages/profile/index"
+    "pages/profile/index",
+    "pages/profile/detailPage/crmInfo/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

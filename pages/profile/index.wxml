@@ -1,5 +1,88 @@
 <!--pages/profile/index.wxml-->
-<view>
-<view>profile页面</view>
+<view class="container">
+  <view wx:if="{{!errPage}}">
+  <!-- 头部信息 -->
+  <view class="headerInfo">
+    <view><image src="/image/girl.jpg"></image></view>
+    <view>
+            <text>名字</text>
+            <text>昵称：{{personalInfo.nickname}}</text>
+            <text>性别：{{personalInfo.gender}}</text>
+            <text>地区：{{personalInfo.location}}</text>
+            <text>语言：{{personalInfo.language}}</text>
+    </view>
+  </view>
+  <view class="crmInfo">
+    <view>
+       <text>{{crmData.show_title}}</text>
+          <view>
+            <view wx:for="{{crmData.crm_info}}" wx:key="{{index}}" class="singleCategory">
+              <view>{{item.category_name}}</view>
+              <view>
+                <view wx:for="{{item.custom_field_value}}" wx:key="{{index}}">
+                  <text >{{item.label === 'membercode' ? '会员卡号' : item.label}} </text>
+                  <text>{{item.value}}</text>
+                </view>
+              </view>
+            </view>
+           <view class="weui-cells weui-cells_after-title">
+            <navigator url="/pages/profile/detailPage/crmInfo/index" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+                <view class="weui-cell__bd">浏览完整信息</view>
+                <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+            </navigator>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="sales_notebook">
+     <text>{{noteInfo.show_title}}</text>
+          <view>
+            <view>
+              <view class="weui-cell__bd">
+                <textarea class="weui-textarea" placeholder="" disabled  value="{{noteInfo.profile_note.note}}" id="noteTextarea" maxlength="-1"></textarea>
+              </view>
+            </view>
+            <view class="weui-cells weui-cells_after-title">
+            <navigator url="/pages/profile/detailPage/crmInfo/index" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+                <view class="weui-cell__bd">修改</view>
+                <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+            </navigator>
+        </view>
+      </view>
+  </view>
+  <view class="tags">
+      <view>
+            <text>{{tagsInfo.show_title}}</text>
+      </view>
+      <view>
+        <view>
+          <view>
+            我的标签
+          </view>
+          <view class="tags_tagBox">
+            <text class="singleTag" wx:for="{{tagsInfo.tags}}" wx:key="{{index}}" >{{item}}</text>
+          </view>
+        </view>
+        <!--<div>-->
+          <!--<div>近一个月社群标签</div>-->
+          <!--<div>-->
+            <!--<mt-badge type="primary" color="#3c7ec9" v-for="(item, index) in tagsLibrary" :key="index">{{item.tag_name}}</mt-badge>-->
+          <!--</div>-->
+        <!--</div>-->
+      </view>
+        <view class="weui-cells weui-cells_after-title">
+            <navigator url="/pages/profile/detailPage/crmInfo/index" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+                <view class="weui-cell__bd">修改</view>
+                <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+            </navigator>
+        </view>
+  </view>
+  <view>
+  
+  </view>
+  </view>
+  <view wx:else>
+  fei
+  </view>
 </view>
 
