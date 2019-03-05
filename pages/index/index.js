@@ -8,52 +8,31 @@ Page({
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    shareList: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]
+    shareList: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16],
+    touristList: [],
+    currentPage: 1,
+    maxPage: ''
   },
   //事件处理函数
-  bindViewTap: function() {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
-  },
-  onLoad: function () {
-    if (app.globalData.userInfo) {
-      this.setData({
-        userInfo: app.globalData.userInfo,
-        hasUserInfo: true
-      })
-    } else if (this.data.canIUse){
-      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-      // 所以此处加入 callback 以防止这种情况
-      app.userInfoReadyCallback = res => {
-        this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
-        })
-      }
-    } else {
-      // 在没有 open-type=getUserInfo 版本的兼容处理
-      wx.getUserInfo({
-        success: res => {
-          app.globalData.userInfo = res.userInfo
-          this.setData({
-            userInfo: res.userInfo,
-            hasUserInfo: true
-          })
-        }
-      })
-    }
-  },
   onShow: function () {
-    if (typeof this.getTabBar === 'function' &&
-      this.getTabBar()) {
-      this.getTabBar().setData({
-        selected: 0
-      })
-    }
   },
   onLoad: function (query) {
-    console.log(query)
+    this.getList();
+  },
+  getList(){
+    let _this = this
+    wx.request({
+      url: 'http://localhost/queryTourist',
+      data: {
+        page: this.data.currentPage
+      },
+      method: "GET",
+      success: function (res) {
+        _this.setData({ [`touristList[${_this.data.currentPage - 1}]`] : res.data.items })
+        console.log(_this.data.touristList)
+        _this.setData({ maxPage: res.data.totalPage})
+      }
+    })
   },
   getUserInfo: function(e) {
     console.log(e)
@@ -61,6 +40,32 @@ Page({
     this.setData({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
+    })
+  },
+  jump(event){
+    let id = event.currentTarget.dataset.id
+    console.log(event)
+    wx.navigateTo({
+      url: "/pages/index/detailPage/detailPage?id=" +id
+    })
+  },
+  onReachBottom(){
+    console.log("触底了")
+    if (this.data.currentPage < this.data.maxPage) {
+      this.setData({
+        currentPage: ++this.data.currentPage
+      })
+      this.getList();
+    }
+
+  },
+  testResponseStatus(){
+    wx.request({
+      url: 'http://localhost/testResponseStatus2?id=1',
+      method: 'GET',
+      success: function(res){
+        console.log(res)
+      }
     })
   }
 })

@@ -1,19 +1,19 @@
 <!--index.wxml-->
-<list-header></list-header>
-<view class="header">
-  <view><text>客户名</text><text>商品</text><text>总价</text><text>日期</text><text>状态</text></view>
-</view>
+<!-- <list-header></list-header>
 <scroll-view class="listContainer" scroll-y
 >
-<view wx:for="{{shareList}}" wx:key="{{index}}" class="list_single_customer">
-<navigator url="/pages/profile/index">
-  <view><image src="/image/girl.jpg"></image></view>
-  <view><text>偷偷懒猫</text></view>
-  <view><text>奥魅惑磨砂美唇膏 (2)</text></view>
-  <view><text>$16,000</text></view>
-  <view><text>12-29</text></view>
-  <view><icon type="success" color="#3c7ec9" wx:if="{{index % 2 === 0}}"></icon><text wx:else>一般活跃</text></view>
-</navigator>
+
+</scroll-view> -->
+<view wx:for="{{touristList}}" wx:key="{{index}}"  wx:for-item="items">
+<view wx:for="{{items}}" wx:key="{{index}}" class="list_single_customer" bindtap='jump' data-id="{{item.id}}">
+  <view class="cover_image">
+  {{}}
+    <image src="{{item.coverImage}}" />
+  </view>
+  <view class="description">
+    <text>{{item.name}}</text><text>{{item.description}}</text>
+  </view>
 </view>
-</scroll-view>
+</view>
+
 
