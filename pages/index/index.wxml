@@ -4,6 +4,29 @@
 >
 
 </scroll-view> -->
+<view >
+    <view class="recommend">
+      <view>
+            <view style="font-weight:{{activeIndex ? 'bold' : 'normal'}}" bindtap='changActive' data-index="1">推荐<image src="{{activeIndex ?icon[0].collection : icon[1].collection}}" class="icon"></image></view><view bindtap='changActive' style="font-weight:{{!activeIndex ? 'bold' : 'normal'}}" data-index="2">更多推荐<image src="{{!activeIndex ? icon[0].goto : icon[1].goto}}" class="icon"></image></view>
+      </view>
+    </view>
+    <view class="swiper">
+      <swiper
+  indicator-dots="{{true}}"
+  autoplay="{{true}}"
+  interval="3000"
+  duration="500"
+  circular="{{true}}"
+>
+        <block wx:for="{{imgUrls}}" wx:key="{{index}}">
+          <swiper-item>
+            <image src="{{item}}" class="slide-image" width="355" height="150" />
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+</view>
+
 <view wx:for="{{touristList}}" wx:key="{{index}}"  wx:for-item="items">
 <view wx:for="{{items}}" wx:key="{{index}}" class="list_single_customer" bindtap='jump' data-id="{{item.id}}">
   <view class="cover_image">

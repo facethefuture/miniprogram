@@ -1,3 +1,36 @@
+.recommend{
+  display: flex;
+  justify-content: center;
+  margin: 0 20px;
+}
+.recommend>view{
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.recommend>view>view{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'MicrosoftYaHei';
+}
+.swiper{
+  margin:5px;
+}
+.icon{
+  width: 20px;
+  height: 20px;
+  margin: 3px;
+}
+.active{
+  font-weight:bold;
+}
+
+
+
+
+
 .list_single_customer{
   display: flex;
   border: 1px solid gainsboro;

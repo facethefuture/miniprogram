@@ -11,7 +11,24 @@ Page({
     shareList: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16],
     touristList: [],
     currentPage: 1,
-    maxPage: ''
+    maxPage: '',
+    imgUrls: [
+      '/image/recommend/recommend01.jpeg',
+      '/image/recommend/recommend02.jpeg',
+      '/image/recommend/recommend03.jpeg'
+    ],
+    icon: [{
+      'collection': '/image/collection.svg',
+      'goto': '/image/goto.svg'
+    }, {
+        'collection': '/image/collection-r.svg',
+        'goto': '/image/goto-r.svg'
+      }],
+    indicatorDots: false,
+    autoplay: false,
+    interval: 5000,
+    duration: 1000,
+    activeIndex: true
   },
   //事件处理函数
   onShow: function () {
@@ -66,6 +83,12 @@ Page({
       success: function(res){
         console.log(res)
       }
+    })
+  },
+  changActive (event) {
+    console.log(event)
+    this.setData({
+      activeIndex: event.currentTarget.dataset.index === "1"
     })
   }
 })
