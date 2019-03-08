@@ -28,13 +28,15 @@ Page({
     autoplay: false,
     interval: 5000,
     duration: 1000,
-    activeIndex: true
+    activeIndex: true,
+    themeList:[]
   },
   //事件处理函数
   onShow: function () {
   },
   onLoad: function (query) {
     this.getList();
+    this.getTheme();
   },
   getList(){
     let _this = this
@@ -102,5 +104,18 @@ Page({
         })
       }
     }
+  },
+  getTheme(){
+    let _this = this
+    wx.request({
+      url: 'http://www.4bbbb.cn/queryTheme',
+      method: 'GET',
+      success:function(res){
+        _this.setData({
+          themeList: res.data
+        })
+        console.log(res)
+      }
+    })
   }
 })

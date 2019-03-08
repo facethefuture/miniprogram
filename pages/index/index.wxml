@@ -48,29 +48,11 @@
     </view>
     <!-- 主题模块 -->
     <view class="themeModule">
-      <view class="theme_module_item">
+      <view class="theme_module_item" wx:for="{{themeList}}" wx:key="{{index}}">
          <view>
-            <image src="/image/theme/yejing.jpg"></image>
+            <image src="{{item.imageUrl}}"></image>
         </view>
-        <view class="theme_module_title">浪漫夜景</view>
-      </view>
-          <view class="theme_module_item">
-         <view>
-            <image src="/image/theme/yejing.jpg"></image>
-        </view>
-        <view class="theme_module_title">风情游乐园</view>
-      </view>
-        <view class="theme_module_item">
-         <view>
-            <image src="/image/theme/yejing.jpg"></image>
-        </view>
-        <view class="theme_module_title">古镇</view>
-      </view>
-             <view class="theme_module_item">
-         <view>
-            <image src="/image/theme/wenyi.jpg"></image>
-        </view>
-        <view class="theme_module_title">文艺漫步</view>
+        <view class="theme_module_title">{{item.title}}</view>
       </view>
     </view>
 </view>
