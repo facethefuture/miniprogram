@@ -39,7 +39,7 @@ Page({
   getList(){
     let _this = this
     wx.request({
-      url: 'http://localhost/queryTourist',
+      url: 'http://www.4bbbb.cn/queryTourist',
       data: {
         page: this.data.currentPage
       },
@@ -87,8 +87,20 @@ Page({
   },
   changActive (event) {
     console.log(event)
-    this.setData({
-      activeIndex: event.currentTarget.dataset.index === "1"
-    })
+    if (event.currentTarget.dataset.index === "1") {
+      this.setData({
+        activeIndex: true
+      })
+    } else {
+      if (event.currentTarget.dataset.index === "2" && !this.data.activeIndex) {
+        this.setData({
+          activeIndex: true
+        })
+      } else {
+        this.setData({
+          activeIndex: false
+        })
+      }
+    }
   }
 })

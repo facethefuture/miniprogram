@@ -1,16 +1,11 @@
-<!--index.wxml-->
-<!-- <list-header></list-header>
-<scroll-view class="listContainer" scroll-y
->
 
-</scroll-view> -->
-<view >
+<view  >
     <view class="recommend">
       <view>
             <view style="font-weight:{{activeIndex ? 'bold' : 'normal'}}" bindtap='changActive' data-index="1">推荐<image src="{{activeIndex ?icon[0].collection : icon[1].collection}}" class="icon"></image></view><view bindtap='changActive' style="font-weight:{{!activeIndex ? 'bold' : 'normal'}}" data-index="2">更多推荐<image src="{{!activeIndex ? icon[0].goto : icon[1].goto}}" class="icon"></image></view>
       </view>
     </view>
-    <view class="swiper">
+    <view class="swiper" hidden='{{!activeIndex}}'>
       <swiper
   indicator-dots="{{true}}"
   autoplay="{{true}}"
@@ -20,14 +15,18 @@
 >
         <block wx:for="{{imgUrls}}" wx:key="{{index}}">
           <swiper-item>
-            <image src="{{item}}" class="slide-image" width="355" height="150" />
+            <view class="swiper_image">
+             <image src="{{item}}" class="slide-image" width="355" height="200" />
+            </view>
+           
           </swiper-item>
         </block>
       </swiper>
     </view>
 </view>
-
-<view wx:for="{{touristList}}" wx:key="{{index}}"  wx:for-item="items">
+<!-- 更多推荐 -->
+<view hidden='{{activeIndex}}'>
+  <view wx:for="{{touristList}}" wx:key="{{index}}"  wx:for-item="items">
 <view wx:for="{{items}}" wx:key="{{index}}" class="list_single_customer" bindtap='jump' data-id="{{item.id}}">
   <view class="cover_image">
   {{}}
@@ -38,5 +37,43 @@
   </view>
 </view>
 </view>
+</view>
+
+<!-- 精选主题 -->
+<view>
+  <view class="recommend theme">
+      <view>
+            <view ><image src="/image/jingxuanIcon.svg" class="icon"></image>精选主题</view><view>全部<image src="{{!activeIndex ? icon[0].goto : icon[1].goto}}" class="icon"></image></view>
+      </view>
+    </view>
+    <!-- 主题模块 -->
+    <view class="themeModule">
+      <view class="theme_module_item">
+         <view>
+            <image src="/image/theme/yejing.jpg"></image>
+        </view>
+        <view class="theme_module_title">浪漫夜景</view>
+      </view>
+          <view class="theme_module_item">
+         <view>
+            <image src="/image/theme/yejing.jpg"></image>
+        </view>
+        <view class="theme_module_title">风情游乐园</view>
+      </view>
+        <view class="theme_module_item">
+         <view>
+            <image src="/image/theme/yejing.jpg"></image>
+        </view>
+        <view class="theme_module_title">古镇</view>
+      </view>
+             <view class="theme_module_item">
+         <view>
+            <image src="/image/theme/wenyi.jpg"></image>
+        </view>
+        <view class="theme_module_title">文艺漫步</view>
+      </view>
+    </view>
+</view>
+
 
 
